@@ -10,5 +10,6 @@
     ./users.nix
     ./packages.nix
     ./hardware.nix
+    ./security.nix
   ];
 }
