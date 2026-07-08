@@ -19,11 +19,16 @@ let
   ];
 
   desktop = with pkgs; [
+    kdePackages.plasma-browser-integration
     google-chrome
     moonlight-qt
+    thunderbird
+    winboat
   ];
 in
 {
+  virtualisation.docker.enable = true;
+
   environment.systemPackages =
     cli
     ++ shells
