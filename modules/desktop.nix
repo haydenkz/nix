@@ -1,10 +1,21 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.xserver.enable = true;
+
+  services.displayManager.ly.enable = true;
   
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+    	swaylock
+	swayidle
+	foot
+	rofi
+	dmenu
+    ];
+  };
 
   services.xserver.xkb = {
     layout = "us";

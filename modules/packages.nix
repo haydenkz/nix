@@ -19,7 +19,6 @@ let
   ];
 
   desktop = with pkgs; [
-    kdePackages.plasma-browser-integration
     google-chrome
     moonlight-qt
     thunderbird
