@@ -1,20 +1,24 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
+
+let
+  hyprlandSession = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+in
 
 {
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
-  services.displayManager.ly.enable = true;
-  
-  programs.sway = {
+  programs.hyprland = {
     enable = true;
-    wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [
-    	swaylock
-	swayidle
-	foot
-	rofi
-	dmenu
-    ];
+    xwayland.enable = true; 
+    withUWSM = true;
+  };
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --user-menu --cmd ${lib.escapeShellArg hyprlandSession}";
+      user = "greeter";
+    };
   };
 
   services.xserver.xkb = {

@@ -7,6 +7,11 @@ let
     neovim
     fastfetch
     wget
+    codex
+    whois
+    nodejs
+    hyprpaper
+    net-tools
   ];
 
   shells = with pkgs; [
@@ -20,9 +25,12 @@ let
 
   desktop = with pkgs; [
     google-chrome
+    nautilus
     moonlight-qt
-    thunderbird
-    winboat
+    thunderbird 
+    bibata-cursors
+    hyprlauncher
+    playerctl
   ];
 in
 {

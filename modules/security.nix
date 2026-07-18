@@ -7,11 +7,10 @@
   security.pam.services.sudo.fprintAuth = true;
   security.pam.services.polkit-1.fprintAuth = true;
 
-  security.polkit.enable = true;
-  
   networking.firewall = {
     enable = true;
     allowPing = false;
+    allowedTCPPorts = [ 5173 ];
   };
 
   services.openssh = {
