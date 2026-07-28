@@ -12,6 +12,10 @@ let
     nodejs
     hyprpaper
     net-tools
+    python3
+    bluetui
+    gcc
+    bun
   ];
 
   shells = with pkgs; [
@@ -20,25 +24,33 @@ let
 
   terminals = with pkgs; [
     ghostty
-    kitty
   ];
 
   desktop = with pkgs; [
     google-chrome
     nautilus
+    vscode
     moonlight-qt
     thunderbird 
     bibata-cursors
+
+    #Hyprland
     hyprlauncher
     playerctl
+    waybar
+    playerctl
+    brightnessctl
+    grim
+    slurp
+    wl-clipboard
   ];
 in
 {
   virtualisation.docker.enable = true;
-
   environment.systemPackages =
     cli
     ++ shells
     ++ terminals
     ++ desktop;
 }
+
