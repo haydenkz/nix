@@ -16,6 +16,7 @@ let
     bluetui
     gcc
     bun
+    pnpm
   ];
 
   shells = with pkgs; [
@@ -30,27 +31,31 @@ let
     google-chrome
     nautilus
     vscode
-    moonlight-qt
-    thunderbird 
+    thunderbird
     bibata-cursors
+    kicad
+    freecad
 
-    #Hyprland
+    # Hyprland
     hyprlauncher
     playerctl
     waybar
-    playerctl
     brightnessctl
     grim
     slurp
     wl-clipboard
+    nwg-displays
+    wl-screenrec
+    libnotify
   ];
 in
 {
   virtualisation.docker.enable = true;
+  services.flatpak.enable = true;
+
   environment.systemPackages =
     cli
     ++ shells
     ++ terminals
     ++ desktop;
 }
-
