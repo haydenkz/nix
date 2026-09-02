@@ -17,6 +17,9 @@ let
     gcc
     bun
     pnpm
+    nmap
+    netcat
+    dig
   ];
 
   shells = with pkgs; [
