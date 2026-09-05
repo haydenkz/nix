@@ -10,6 +10,12 @@
 
   environment.localBinInPath = true;
 
+  programs.appimage = {
+    enable = true;
+    # Allow executable AppImages to run directly.
+    binfmt = true;
+  };
+
   programs.nix-ld = {
     enable = true;
 

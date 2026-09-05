@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
  
@@ -43,10 +43,6 @@ let
     meshtastic
   ];
 
-  shells = with pkgs; [
-    zsh
-  ];
-
   terminals = with pkgs; [
     ghostty
   ];
@@ -60,7 +56,7 @@ let
     kicad
     freecad
 
-    # Native Plasticity forced through Wayland
+    # Run Plasticity through XWayland with the flags configured above.
     plasticityOptimized
 
     # Hyprland
@@ -80,12 +76,8 @@ in
 {
   services.flatpak.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    lib.getName pkg == "plasticity";
-
   environment.systemPackages =
     cli
-    ++ shells
     ++ terminals
     ++ desktop;
 }

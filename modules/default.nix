@@ -3,6 +3,7 @@
 {
   imports = [
     ./nix.nix
+    ./maintenance.nix
     ./boot.nix
     ./networking.nix
     ./desktop.nix
